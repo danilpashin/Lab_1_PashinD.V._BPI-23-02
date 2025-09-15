@@ -20,9 +20,21 @@ namespace Lab_1_PashinD.V._BPI_23_02
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Book bookA { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void avgCostPage(object sender, RoutedEventArgs e)
+        {
+            var title = Title.Text;
+            int pages = Convert.ToInt32(Pages.Text);
+            double cost = Convert.ToDouble(Cost.Text); ;
+
+            bookA = new Book(title, pages, cost);
+            // int costPage = bookA.avgCostPage(pages, cost);
+            //MessageBox.Show("Средняя цена страницы = ", Convert.ToString(costPage));
         }
     }
 }
