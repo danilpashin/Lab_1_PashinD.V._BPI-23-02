@@ -31,7 +31,7 @@ namespace Lab_1_PashinD.V._BPI_23_02
             string title = Title.Text;
             int pages;
             double cost;
-            if (title != "" && !string.IsNullOrWhiteSpace(title) && int.TryParse(Pages.Text, out pages) && double.TryParse(Cost.Text, out cost))
+            if (!string.IsNullOrWhiteSpace(title) && int.TryParse(Pages.Text, out pages) && double.TryParse(Cost.Text, out cost))
             {
                 if(pages > 0 && cost >= 0)
                 {
@@ -56,13 +56,13 @@ namespace Lab_1_PashinD.V._BPI_23_02
             int pages;
             double cost;
             string key = Key.Text;
-            if (title != "" && !string.IsNullOrWhiteSpace(title) && int.TryParse(Pages.Text, out pages) && double.TryParse(Cost.Text, out cost))
+            if (!string.IsNullOrWhiteSpace(title) && int.TryParse(Pages.Text, out pages) && double.TryParse(Cost.Text, out cost))
             {
                 if (pages > 0 && cost >= 0)
                 {
                     bookA = new Book(title, pages, cost);
-                    double costChanged = bookA.changeCost(title, cost);
-                    NewCost.Content = Convert.ToString(costChanged);
+                    double costChanged = bookA.changeCost(title, key, cost);
+                    Cost.Text = Convert.ToString(costChanged);
                 }
                 else
                 {

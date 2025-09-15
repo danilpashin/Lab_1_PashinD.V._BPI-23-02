@@ -25,14 +25,14 @@ namespace Lab_1_PashinD.V._BPI_23_02
 
         public double avgCostPage(int pages, double cost)
         {
-            int avgCost = 0;
-            avgCost = (int)cost / pages;
+            double avgCost = 0;
+            avgCost = cost / pages;
             return avgCost;
         }
 
-        public double changeCost(string key, double cost)
+        public double changeCost(string title, string key, double cost)
         {
-            if (key.Contains("Программирование")) cost = cost * 2;
+            if (title.Contains(key)) cost = cost * 2;
             return cost;
         }
     }
