@@ -8,15 +8,19 @@ namespace Lab_1_PashinD.V._BPI_23_02
 {
     public class Book
     {
-        string title;
-        int pages;
-        double cost;
+        private string title;
+        private int pages;
+        private double cost;
+
+        public string Title { get; set; }
+        public int Pages { get; set; }
+        public double Cost { get; set; }
 
         public Book(string title, int pages, double cost)
         {
-            this.title = title;
-            this.pages = pages;
-            this.cost = cost;
+            Title = title;
+            Pages = pages;
+            Cost = cost;
         }
 
         public double avgCostPage(int pages, double cost)
@@ -26,9 +30,9 @@ namespace Lab_1_PashinD.V._BPI_23_02
             return avgCost;
         }
 
-        public double changeCost(string title, double cost)
+        public double changeCost(string key, double cost)
         {
-            if (title.Contains("Программирование")) cost = cost * 2;
+            if (key.Contains("Программирование")) cost = cost * 2;
             return cost;
         }
     }

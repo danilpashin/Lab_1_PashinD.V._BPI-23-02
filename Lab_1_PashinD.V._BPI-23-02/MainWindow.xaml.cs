@@ -28,13 +28,52 @@ namespace Lab_1_PashinD.V._BPI_23_02
 
         public void avgCostPage(object sender, RoutedEventArgs e)
         {
-            var title = Title.Text;
-            int pages = Convert.ToInt32(Pages.Text);
-            double cost = Convert.ToDouble(Cost.Text); ;
+            string title = Title.Text;
+            int pages;
+            double cost;
+            if (title != "" && !string.IsNullOrWhiteSpace(title) && int.TryParse(Pages.Text, out pages) && double.TryParse(Cost.Text, out cost))
+            {
+                if(pages > 0 && cost >= 0)
+                {
+                    bookA = new Book(title, pages, cost);
+                    double costPage = bookA.avgCostPage(pages, cost);
+                    AvgCostPage.Content = Convert.ToString(costPage);
+                }
+                else
+                {
+                    MessageBox.Show("Некорректные данные!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Неправильный ввод!");
+            }
+        }
 
-            bookA = new Book(title, pages, cost);
-            // int costPage = bookA.avgCostPage(pages, cost);
-            //MessageBox.Show("Средняя цена страницы = ", Convert.ToString(costPage));
+        public void doubleCost(object sender, RoutedEventArgs e)
+        {
+            string title = Title.Text;
+            int pages;
+            double cost;
+            string key = Key.Text;
+            if (title != "" && !string.IsNullOrWhiteSpace(title) && int.TryParse(Pages.Text, out pages) && double.TryParse(Cost.Text, out cost))
+            {
+                if (pages > 0 && cost >= 0)
+                {
+                    bookA = new Book(title, pages, cost);
+                    double costChanged = bookA.changeCost(title, cost);
+                    NewCost.Content = Convert.ToString(costChanged);
+                }
+                else
+                {
+                    MessageBox.Show("Некорректные данные!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Неправильный ввод!");
+            }
+
         }
     }
 }
