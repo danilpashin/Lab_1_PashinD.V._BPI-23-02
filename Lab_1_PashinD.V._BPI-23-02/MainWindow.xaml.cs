@@ -75,5 +75,17 @@ namespace Lab_1_PashinD.V._BPI_23_02
             }
 
         }
+
+        private void Num_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            foreach (char c in e.Text)
+            {
+                if (!char.IsControl(c) && !char.IsSeparator(c) && !char.IsDigit(c))
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+        }
     }
 }

@@ -6,25 +6,7 @@
         xmlns:local="clr-namespace:Lab_1_PashinD.V._BPI_23_02"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" MinWidth="850" MinHeight="283">
-    <Window.Resources>
-        <Style TargetType="local:MainWindow">
-            <Setter Property="Background" Value="#FF071827" />
-        </Style>
-        <Style TargetType="TextBox">
-            <Setter Property="Background" Value="#FFB6DDFF" />
-        </Style>
-        <Style TargetType="Label">
-            <Setter Property="FontFamily" Value="Bahnschrift Light" />
-            <Setter Property="Foreground" Value="#FF7ABECD" />
-        </Style>
-        <Style TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Bahnschrift Light" />
-        </Style>
-        <Style TargetType="Button">
-            <Setter Property="Background" Value="#FF5EC3FF" />
-        </Style>
-    </Window.Resources>
-    
+
     <Grid MinWidth="850" MinHeight="283">
         <Grid.RowDefinitions>
             <RowDefinition Height="283*"></RowDefinition>
@@ -37,19 +19,19 @@
             <Label Content="Название"/>
             <TextBox x:Name ="Title" Grid.Row="0" Grid.Column="0" Text="" Height="20"/>
             <Label Content="Количество страниц"/>
-            <TextBox x:Name ="Pages" Grid.Row="0" Grid.Column="0" Text="" Height="20"/>
+            <TextBox x:Name ="Pages" Grid.Row="0" Grid.Column="0" Text="" PreviewTextInput="Num_PreviewTextInput" Height="20"/>
             <Label Content="Цена"/>
-            <TextBox x:Name ="Cost" Grid.Row="0" Grid.Column="0" Text="" Height="20"/>
+            <TextBox x:Name ="Cost" Grid.Row="0" Grid.Column="0" Text="" PreviewTextInput="Num_PreviewTextInput" Height="20"/>
             <Label Content="Ключ"/>
             <TextBox x:Name ="Key" Grid.Row="0" Grid.Column="0" Text="" Height="20"/>
         </StackPanel>
 
         <StackPanel VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Height="Auto">
-            <Button HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Height="50" Width="215" Click="avgCostPage">
+            <Button HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Height="50" Width="220" Click="avgCostPage">
                 <TextBlock>Вычислить среднюю стоимость одной <LineBreak/> страницы</TextBlock>
             </Button>
             <Label x:Name="AvgCostPage" Content="-" HorizontalAlignment="Center"/>
-            <Button Click="doubleCost" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Height="50" Width="215" >
+            <Button Click="doubleCost" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Height="50" Width="220" >
                 <TextBlock>Увеличить цену книги в два раза, <LineBreak/>если в названии есть ключ</TextBlock>
             </Button>
         </StackPanel>
