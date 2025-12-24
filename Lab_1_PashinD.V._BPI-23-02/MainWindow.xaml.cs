@@ -20,9 +20,72 @@ namespace Lab_1_PashinD.V._BPI_23_02
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Book bookA { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void avgCostPage(object sender, RoutedEventArgs e)
+        {
+            string title = Title.Text;
+            int pages;
+            double cost;
+            if (!string.IsNullOrWhiteSpace(title) && int.TryParse(Pages.Text, out pages) && double.TryParse(Cost.Text, out cost))
+            {
+                if(pages > 0 && cost >= 0)
+                {
+                    bookA = new Book(title, pages, cost);
+                    double costPage = bookA.avgCostPage(pages, cost);
+                    AvgCostPage.Content = Convert.ToString(costPage);
+                }
+                else
+                {
+                    MessageBox.Show("Некорректные данные!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Неправильный ввод!");
+            }
+        }
+
+        public void doubleCost(object sender, RoutedEventArgs e)
+        {
+            string title = Title.Text;
+            int pages;
+            double cost;
+            string key = Key.Text;
+            if (!string.IsNullOrWhiteSpace(title) && int.TryParse(Pages.Text, out pages) && double.TryParse(Cost.Text, out cost))
+            {
+                if (pages > 0 && cost >= 0)
+                {
+                    bookA = new Book(title, pages, cost);
+                    double costChanged = bookA.changeCost(title, key, cost);
+                    Cost.Text = Convert.ToString(costChanged);
+                }
+                else
+                {
+                    MessageBox.Show("Некорректные данные!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Неправильный ввод!");
+            }
+
+        }
+
+        private void Num_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            foreach (char c in e.Text)
+            {
+                if (!char.IsControl(c) && !char.IsSeparator(c) && !char.IsDigit(c))
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
         }
     }
 }

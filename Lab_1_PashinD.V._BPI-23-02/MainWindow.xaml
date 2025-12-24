@@ -5,22 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_1_PashinD.V._BPI_23_02"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800" MinWidth="850" MinHeight="283">
+
+    <Grid MinWidth="850" MinHeight="283">
         <Grid.RowDefinitions>
-            <RowDefinition Height="101*"></RowDefinition>
+            <RowDefinition Height="283*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="141*"></ColumnDefinition>
-            <ColumnDefinition Width="160*"></ColumnDefinition>
-            <ColumnDefinition Width="491*"></ColumnDefinition>
+            <ColumnDefinition Width="223"></ColumnDefinition>
+            <ColumnDefinition Width="238"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,13,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Вычислить возраст" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="131" Grid.Column="1" Height="20"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="37,13,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,69,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Вычислить возраст" HorizontalAlignment="Left" Margin="133,40,0,0" VerticalAlignment="Top" Width="131" Grid.Column="2" Height="20"/>
+        <StackPanel VerticalAlignment="Center" Width="Auto" Height="200" Grid.Column="0" Grid.Row="0" Grid.RowSpan="1" Margin="27,14,27,0">
+            <Label Content="Название"/>
+            <TextBox x:Name ="Title" Grid.Row="0" Grid.Column="0" Text="" Height="20"/>
+            <Label Content="Количество страниц"/>
+            <TextBox x:Name ="Pages" Grid.Row="0" Grid.Column="0" Text="" PreviewTextInput="Num_PreviewTextInput" Height="20"/>
+            <Label Content="Цена"/>
+            <TextBox x:Name ="Cost" Grid.Row="0" Grid.Column="0" Text="" PreviewTextInput="Num_PreviewTextInput" Height="20"/>
+            <Label Content="Ключ"/>
+            <TextBox x:Name ="Key" Grid.Row="0" Grid.Column="0" Text="" Height="20"/>
+        </StackPanel>
 
+        <StackPanel VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Height="Auto">
+            <Button HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Height="50" Width="220" Click="avgCostPage">
+                <TextBlock>Вычислить среднюю стоимость одной <LineBreak/> страницы</TextBlock>
+            </Button>
+            <Label x:Name="AvgCostPage" Content="-" HorizontalAlignment="Center"/>
+            <Button Click="doubleCost" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Height="50" Width="220" >
+                <TextBlock>Увеличить цену книги в два раза, <LineBreak/>если в названии есть ключ</TextBlock>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
